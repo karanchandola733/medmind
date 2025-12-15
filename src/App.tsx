@@ -3,11 +3,11 @@ import { Header } from './components/Header';
 import { HomePage } from './components/HomePage';
 import { SymptomForm } from './components/SymptomForm';
 import { ResultsPage } from './components/ResultsPage';
-import { HistoryPage } from './components/HistoryPage';
+import { ChatPage } from './components/ChatPage';
 import { mockPrediction } from './data/mockData';
 import { Prediction } from './types';
 
-type AppPage = 'home' | 'symptoms' | 'results' | 'history';
+type AppPage = 'home' | 'symptoms' | 'results' | 'chat';
 
 function App() {
   const [currentPage, setCurrentPage] = useState<AppPage>('home');
@@ -59,11 +59,10 @@ function App() {
         ) : (
           <HomePage onStartCheck={handleStartCheck} />
         );
-      case 'history':
+      case 'chat':
         return (
-          <HistoryPage
+          <ChatPage
             onBack={() => setCurrentPage('home')}
-            onViewPrediction={handleViewPrediction}
           />
         );
       default:
