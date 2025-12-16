@@ -4,10 +4,11 @@ import { HomePage } from './components/HomePage';
 import { SymptomForm } from './components/SymptomForm';
 import { ResultsPage } from './components/ResultsPage';
 import { ChatPage } from './components/ChatPage';
+import { AboutPage } from './components/AboutPage';
 import { mockPrediction } from './data/mockData';
 import { Prediction } from './types';
 
-type AppPage = 'home' | 'symptoms' | 'results' | 'chat';
+type AppPage = 'home' | 'symptoms' | 'results' | 'chat' | 'about';
 
 function App() {
   const [currentPage, setCurrentPage] = useState<AppPage>('home');
@@ -62,6 +63,12 @@ function App() {
       case 'chat':
         return (
           <ChatPage
+            onBack={() => setCurrentPage('home')}
+          />
+        );
+      case 'about':
+        return (
+          <AboutPage
             onBack={() => setCurrentPage('home')}
           />
         );

@@ -1,16 +1,17 @@
 import React from 'react';
-import { Activity, MessageCircle, Home } from 'lucide-react';
+import { Activity, MessageCircle, Home, Info } from 'lucide-react';
 
 interface HeaderProps {
-  currentPage: 'home' | 'symptoms' | 'results' | 'chat';
-  onNavigate: (page: 'home' | 'symptoms' | 'results' | 'chat') => void;
+  currentPage: 'home' | 'symptoms' | 'results' | 'chat' | 'about';
+  onNavigate: (page: 'home' | 'symptoms' | 'results' | 'chat' | 'about') => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
   const navItems = [
     { id: 'home' as const, label: 'Home', icon: Home },
     { id: 'symptoms' as const, label: 'Check Symptoms', icon: Activity },
-    { id: 'chat' as const, label: 'Health Chat', icon: MessageCircle }
+    { id: 'chat' as const, label: 'Health Chat', icon: MessageCircle },
+    { id: 'about' as const, label: 'About Us', icon: Info }
   ];
 
   return (
